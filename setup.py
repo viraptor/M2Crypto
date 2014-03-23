@@ -145,6 +145,6 @@ interface.''',
       ],
 
       ext_modules = [m2crypto],
-      test_suite='tests.alltests.suite',
+      test_suite='test.alltests.suite',
       cmdclass = {'build_ext': _M2CryptoBuildExt}
       )
