@@ -121,7 +121,7 @@ session management; FTP/TLS client and server; S/MIME; ZServerSSL: A HTTPS
 server for Zope and ZSmime: An S/MIME messenger for Zope. M2Crypto can also be
 used to provide SSL for Twisted. Smartcards supported through the Engine
 interface.''',
-      license = 'BSD-style license',
+      license = 'MIT',
       platforms = ['any'],
       author = 'Ng Pheng Siong',
       author_email = 'ngps at sandbox rulemaker net',
@@ -132,6 +132,7 @@ interface.''',
       classifiers = [
           'Development Status :: 5 - Production/Stable',
           'Intended Audience :: Developers',
+          'License :: OSI Approved :: MIT License',
           'Operating System :: OS Independent',
           'Programming Language :: C',
           'Programming Language :: Python',
