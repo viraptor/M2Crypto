@@ -5,6 +5,7 @@ M2Crypto
  * URL: https://github.com/martinpaljak/M2Crypto
  * Temporary wiki: https://github.com/martinpaljak/M2Crypto/wiki/NextSteps
  * If you have problems, file an issue. Better yet, send a pull request!
+ * The official repository shall soon live at https://github.com/M2Crypto/M2Crypto. Please file "structural" issues with version 0.22.3 to the issue tracker at the above repository. Any pull requests applied here shall be force-updated to the new repository that has cleaner history.
 
 M2Crypto = Python + OpenSSL + SWIG
 ------------------------------------
