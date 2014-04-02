@@ -175,6 +175,16 @@ class X509TestCase(unittest.TestCase):
         self.assertEqual(req.get_version(), 0)
 
 
+    def test_get_extensions(self):
+        (req, _) = self.mkreq(1024)
+        exts = req.get_extensions()
+        self.assertEqual(len(exts), 2)
+
+        (req, _) = self.mkreq(1024, ca=1)
+        exts = req.get_extensions()
+        self.assertEqual(len(exts), 0)
+
+
     def test_mkcert(self):
         req, pk = self.mkreq(1024)
         pkey = req.get_pubkey()

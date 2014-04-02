@@ -106,6 +106,7 @@ class X509_Extension_Stack:
     m2_sk_x509_extension_free = m2.sk_x509_extension_free
 
     def __init__(self, stack=None, _pyfree=0):
+        self.pystack = [] # This must be kept in sync with self.stack
         if stack is not None:
             self.stack = stack
             self._pyfree = _pyfree
@@ -116,7 +117,6 @@ class X509_Extension_Stack:
         else:
             self.stack = m2.sk_x509_extension_new_null()
             self._pyfree = 1
-            self.pystack = [] # This must be kept in sync with self.stack
         
     def __del__(self):
         if getattr(self, '_pyfree', 0):
@@ -967,6 +967,15 @@ class Request:
         @param ext_stack: Stack of extensions to add.
         """
         return m2.x509_req_add_extensions(self.req, ext_stack._ptr())
+
+    def get_extensions(self):
+        """
+        Get X509 extensions from this request.
+        """
+        stack = m2.x509_req_get_extensions(self.req)
+        if stack is None:
+            return None
+        return X509_Extension_Stack(stack, _pyfree=1)
 
     def verify(self, pkey):
         return m2.x509_req_verify(self.req, pkey.pkey)
